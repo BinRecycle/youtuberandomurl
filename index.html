@@ -4,92 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube URL 생성기</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-        }
-        .container {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 300px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        input {
-            font-family: monospace;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            padding: 0.5rem;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .credit {
-            font-size: 0.8rem;
-            color: #666;
-            margin-top: 1rem;
-            text-align: center;
-        }
-        #goToUrlButton {
-            margin-top: 1rem;
-            padding: 0.5rem;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        #goToUrlButton:hover {
-            background-color: #218838;
-        }
-        #goToUrlButton:disabled {
-            background-color: #6c757d;
-            cursor: not-allowed;
-        }
-        #videoEmbed {
-            margin-top: 1rem;
-            width: 100%;
-            height: 225px;
-            border: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
     <div class="container">
         <h1>YouTube 랜덤 URL 생성기</h1>
         <form id="urlForm" onsubmit="generateURL(event)">
-            <input type="text" id="urlInput" placeholder="https://www.youtube.com/watch?v=" readonly>
+            <input type="text" id="urlInput" placeholder="www.youtube.com/watch?v=" readonly>
             <button type="submit">생성</button>
-            <iframe id="videoEmbed" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="video"><iframe id="videoEmbed" src="" frameborder="0" allowfullscreen></iframe></div>
         </form>
     </div>
-    <div class="credit">Created by BinRecycle with <a href="https://v0.dev/">v0</a></div>
+    <div class="credit">Created by BinRecycle with <a href="https://v0.dev/" target="_blank" rel="noreferrer noopener">v0</a> | <a href="https://github.com/BinRecycle/youtuberandomurl" target="_blank" rel="noreferrer noopener">GitHub</div>
 
     <script>
         function generateRandomString(length) {
@@ -106,7 +32,7 @@
             const baseUrl = 'https://www.youtube.com/embed/';
             const randomId = generateRandomString(11);
             const fullUrl = baseUrl + randomId;
-            document.getElementById('urlInput').value = 'https://www.youtube.com/watch?v=' + randomId;
+            document.getElementById('urlInput').value = 'www.youtube.com/watch?v=' + randomId;
             document.getElementById('videoEmbed').src = fullUrl;
         }
     </script>
