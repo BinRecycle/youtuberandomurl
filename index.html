@@ -10,9 +10,10 @@
     <div class="container">
         <h1>YouTube 랜덤 URL 생성기</h1>
         <form id="urlForm" onsubmit="generateURL(event)">
-            <input type="text" id="urlInput" placeholder="www.youtube.com/watch?v=" readonly>
+            <input type="text" id="urlInput" placeholder="https://www.youtube.com/watch?v=" readonly>
             <button type="submit">생성</button>
             <div class="video"><iframe id="videoEmbed" src="" frameborder="0" allowfullscreen></iframe></div>
+            <button id="goToUrlButton" type="button" onclick="goToUrl()" disabled>주소로 이동</button>
         </form>
     </div>
     <div class="credit">Created by <a href="https://github.com/BinRecycle" target="_blank" rel="noreferrer noopener">BinRecycle</a> with <a href="https://v0.dev/" target="_blank" rel="noreferrer noopener">v0</a> | Hosted by <a href="https://www.netlify.com/" target="_blank" rel="noreferrer noopener">netlify</a> | <a href="https://github.com/BinRecycle/youtuberandomurl" target="_blank" rel="noreferrer noopener">GitHub</a></div>
@@ -27,13 +28,21 @@
             return result;
         }
 
+        function goToUrl() {
+            const url = document.getElementById('urlInput').value;
+            if (url) {
+                window.open(url, '_blank', 'noreferrer, noopener');
+            }
+        }
+
         function generateURL(event) {
             event.preventDefault();
             const baseUrl = 'https://www.youtube.com/embed/';
             const randomId = generateRandomString(11);
             const fullUrl = baseUrl + randomId;
-            document.getElementById('urlInput').value = 'www.youtube.com/watch?v=' + randomId;
+            document.getElementById('urlInput').value = 'https://www.youtube.com/watch?v=' + randomId;
             document.getElementById('videoEmbed').src = fullUrl;
+            document.getElementById('goToUrlButton').disabled = false;
         }
     </script>
 </body>
