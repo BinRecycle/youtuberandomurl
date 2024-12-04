@@ -10,8 +10,10 @@
     <div class="container">
         <h1>YouTube 랜덤 URL 생성기</h1>
         <form id="urlForm" onsubmit="generateURL(event)">
-            <input type="text" id="urlInput" placeholder="youtu.be/" readonly>
-            <button type="submit">생성</button>
+            <div class="row">
+                <input type="text" id="urlInput" placeholder="youtu.be/" readonly>
+                <button type="submit">생성</button>
+            </div>
             <div class="video"><iframe id="videoEmbed" src="" frameborder="0" allowfullscreen></iframe></div>
             <button id="goToUrlButton" type="button" onclick="goToUrl()" disabled>주소로 이동</button>
         </form>
