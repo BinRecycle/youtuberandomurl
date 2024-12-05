@@ -23,7 +23,7 @@ body {
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     width: 700px;
 }
 
@@ -52,23 +52,31 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    cursor: text;
+}
+
+input:focus {
+    outline: none;
 }
 
 button {
-    width: 20%;
     padding: 0.6rem;
-    background-color: #007bff;
     font-size: 1rem;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
-button:hover {
-    background-color: #0056b3;
-    transition: background-color 0.2s;
+#generateBtn {
+    width: 20%;
+    background-color: #007bff;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#generateBtn:hover {
+    background-color: rgba(0, 123, 255, 0.8);
 }
 
 .video {
@@ -93,22 +101,16 @@ iframe {
     width: 100%;
     margin-top: 1rem;
     background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s;
 }
 
 #goToUrlButton:hover {
-    background-color: #218838;
-    transition: background-color 0.2s;
+    background-color: rgba(40, 167, 69, 0.8);
 }
 
 #goToUrlButton:disabled {
     background-color: #6c757d;
     cursor: not-allowed;
-    transition: background-color 0.2s;
 }
 
 .credit {
@@ -231,7 +233,7 @@ a:hover {
         margin-bottom: 1rem;
     }
 
-    button {
+    #generateBtn {
         width: 100%;
     }
 }
